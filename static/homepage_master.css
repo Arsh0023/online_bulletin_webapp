@@ -1,0 +1,60 @@
+body{
+    background-color:#505152;
+}
+
+.headings{
+    text-align: center;
+    background: #2a9d8f;
+    padding: 18px; /*earlier was 25px when image was not there */
+    font-family: 'Lobster', cursive;
+    font-size: 70px;
+    margin: 0;
+
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+
+    border: 2px solid black;
+
+}
+
+
+
+#heading_links{
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Lobster', cursive;
+}
+
+#signup_p{
+    margin-top: 10%;
+    font-size: 15px;
+    padding: 7px;
+    border: 2px solid #ffadad;
+    border-radius: 25px;
+}
+
+#side_flick{
+    background: #3c3d3d;
+    border: 2px solid black;
+    margin-top: 137px;
+    color: #2a9d8f;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+}
+
+#side_flick_right{
+    margin-top: 2px;
+    margin-left: 90%;
+    border: 2px solid black;
+    background: #3c3d3d;
+    color: #2a9d8f;
+}
+
+#posted_notifications{
+    margin-top: 30px;
+    border: 2px solid black;
+    margin-left: 7%;
+    padding: 15px;
+}
