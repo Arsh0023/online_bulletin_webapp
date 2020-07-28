@@ -7,5 +7,5 @@ from messenger_app import models
 class student_register_form(forms.ModelForm):
 
     class Meta:
-        model = models.students
+        model = models.student
         fields = "__all__"

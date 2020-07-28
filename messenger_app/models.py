@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class students(models.Model):
+class student(models.Model):
     stream_choices = (
     ('CSE','CSE'),
     ('ECE','ECE'),
@@ -17,7 +17,7 @@ class students(models.Model):
     (4,"4th year"),
     )
     name = models.CharField(max_length=264)
-    phone_no = models.IntegerField(unique=True)
+    phone_no = models.CharField(max_length=13,unique=True)
     email = models.EmailField(unique=True)
     stream = models.CharField(max_length=10,choices = stream_choices)
     year = models.IntegerField(choices=year_choices)
