@@ -2,9 +2,10 @@
 {% extends "messenger_app/base.html"%}
 {% block body_block%}
     <div class="jumbotron">
-        will create a model form that will pick info from here will commit to
-        data base and then will show everything dynamically on the webpage.
-        <br><br>
-        But for right its working baby.
+        <form action="{% url "messenger_app:create_post"%}" method="POST">
+            {{ create_post_form.as_p}}
+            {% csrf_token %}
+            <input class="btn btn-primary btn-lg" type="submit" name="" value="Make Post!">
+        </form>
     </div>
 {% endblock %}

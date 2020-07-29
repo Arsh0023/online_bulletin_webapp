@@ -28,6 +28,7 @@ def student_register(request):
 
     return render(request,"messenger_app/student_register_page.html",{"student_register_form":student_register_form})
 
+
 def user_login(request):
     if(request.method == "POST"):
         username = request.POST.get("username")
@@ -38,7 +39,7 @@ def user_login(request):
         if(user):
             if(user.is_active):
                 login(request,user)
-                return(HttpResponseRedirect(reverse("messenger_app:create_post")))
+                return(HttpResponseRedirect(reverse(create_post)))
 
             else:
                 return HttpResponse("Your account is not active!")
@@ -48,6 +49,30 @@ def user_login(request):
     else:
         return render(request,"messenger_app/login.html")
 
-@login_required
+
 def create_post(request):
-    return render(request,"messenger_app/create_post.html")
+    form = forms.create_post_form()
+
+    if(request.method == "POST"):
+        form = forms.create_post_form(request.POST)
+        if(form.is_valid()):
+            #authenticate the user
+            username = form.cleaned_data["username"]
+            password = form.cleaned_data["password"]
+            user = authenticate(username=username,password=password)
+            if(user):
+                #filled the one to one field
+                form.user = user
+
+                #commit it to databse
+                form.save(commit="True")
+                # if(form.cleaned_data["send_as_message"]):
+                    #it will be displayed on the homepage and the user will be returned to the homepages
+                return HttpResponseRedirect(reverse("index"))
+
+            else:
+                return HttpResponse("Maybe you entered username or password wrong,if the problem still persists after retrying contact the admin")
+        else:
+            return HttpResponse("The form you entered is Invalid!")
+
+    return render(request,"messenger_app/create_post.html",{"create_post_form":form})
