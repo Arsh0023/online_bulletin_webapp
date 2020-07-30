@@ -34,7 +34,7 @@ Welcome to official bulletin!!!</h1>
             <a class="btn btn-primary btn-lg" href="{%url "messenger_app:create_post"%}">POST</a>
             <a class="btn btn-primary btn-lg" href="{% url "messenger_app:student_register"%}">Signup!</a>
         </div>
-        <p id = "signup_p">By Signing up you will recieve the notifications through message and as well as an email.</p>
+        <p id = "signup_p">By Signing up you will recieve the notifications through a text message on the given number.</p>
         </div>
         <br><br><br><br><br><br>
 
@@ -48,7 +48,7 @@ Welcome to official bulletin!!!</h1>
 
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <div id="heading_links">
-            <a href="#">About</a>
+            <a href="{%url "messenger_app:about"%}">About</a>
         </div>
         </div>
 

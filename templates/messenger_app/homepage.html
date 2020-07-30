@@ -33,7 +33,7 @@ Welcome to official bulletin!!!</h1>
             <a class="btn btn-primary btn-lg" href="{%url "messenger_app:create_post"%}">POST</a>
             <a class="btn btn-primary btn-lg" href="{% url "messenger_app:student_register"%}">Signup!</a>
         </div>
-        <p id = "signup_p">By Signing up you will recieve the notifications through message and as well as an email.</p>
+        <p id = "signup_p">By Signing up you will recieve the notifications through a text message on the given number.</p>
         </div>
         <br><br><br><br><br><br>
 
@@ -47,40 +47,81 @@ Welcome to official bulletin!!!</h1>
 
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <div id="heading_links">
-            <a href="#">About</a>
+            <a href="{%url "messenger_app:about"%}">About</a>
         </div>
         </div>
 
         <div class="container">
-
+            <br>
+            <!-- this is where the loop will run! -->
+            {% if info_list %}
+            {% for i in info_list %}
+            <p style="color:#ffaa00;font-size:20px;"> &#8728; {{i.user.first_name}} {{i.user.last_name}} posted this on {{i.date}} for {{i.year}} of {{i.stream}} :- </p>
             <div class="jumbotron" id="posted_notifications">
                 <!-- all the posted notifications will be dynamically posted here -->
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <pre><p>{{i.information}}</p></pre>
             </div>
-
+            {%endfor%}
+            {% else %}
+            <h2>No infos posted yet!</h2>
+            {% endif %}
+            <p style="color:#ffaa00;font-size:20px;"> &#8728; Arshpreet Singh has posted this on July 30,2020 for All years for All Streams </p>
             <div class="jumbotron" id="posted_notifications">
                 <!-- all the posted notifications will be dynamically posted here -->
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
+                <p>Hi everyone my name is ARSHPREET SINGH i made this as my summer training project BHASKAR SIR as my mentor,thank you sir for helping me with this !</p>
 
-            <div class="jumbotron" id="posted_notifications">
-                <!-- all the posted notifications will be dynamically posted here -->
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p><u><b>MY MOTIVATION TO DEVELOP THIS:- </b></u></p>
 
-            </div>
+<p> We all know everyone&rsquo;s going through a tough time right now due to this pandemic but everyone&rsquo;s still doing there fair share of help to make the situation better So i also decided to help and developing this project was a very adventrous undertaking i love problem solving and tinkering with code so its been fun and i learned a lot through it.</p>
 
-            <div class="jumbotron" id="posted_notifications">
-                <!-- all the posted notifications will be dynamically posted here -->
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p><u>
+    <b>PROBLEMS I AM TRYING TO SOLVE:-</b>
+</u></p>
 
-            </div>
+<p> Omg we all have experienced it very well when there&rsquo;s a quiz notification posted on our whatsapp group and we missed because either our internet was closed or there&rsquo;s been a thousand messages in our group and we are too lazy to read through them to find the important one. So, i decided why not create a web app where teachers cam post all the important notifications and when they post it will remain on the home page buy they will also be sent as a message to all the students.</p>
 
-            <div class="jumbotron" id="posted_notifications">
-                <!-- all the posted notifications will be dynamically posted here -->
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
+<p><u>
+    <b>TECHNOLOGIES I HAVE USED:-</b>
+</u></p>
 
-        </div>
+<p><u>FRONT END:-</u></p>
+
+<p> HTML</p>
+
+<p> CSS</p>
+
+<p> JAVASCRIPT</p>
+
+<p> BOOTSTRAP</p>
+
+<p><u>BACKEND:-</u></p>
+
+<p> PYTHON</p>
+
+<p> DJANGO FRAMEWORK</p>
+
+<p> SQLITE as my database engine</p>
+
+<p><u>
+<b>FUTURE VIEW:-</b>
+</u></p>
+
+<p> By no means i think this project has a limited use case and ill be actively adding features to it in future if you have any suggestions mail me at arsharsh2391@gmail.com</p>
+</div>
+            <div class="">
+                <p style="color:#ffaa00;font-size:20px;"> &#8728; Arshpreet Singh has posted this on July 30,2020 for All years for All Streams </p>
+                <div class="jumbotron" id="posted_notifications">
+                    <p><b>HOW TO USE</b></p>
+
+<p><b>As a teacher:-</b></p>
+
+<p>Every teacher is provided with a unique username. To make a post click on the POST button at the left side in the user dropdown menu select your user name ,select other options and finally its as easy as making a click</p>
+
+<p><b>As a student:-</b></p>
+
+<p>Just Sign up and you&rsquo;ll be good to go you&rsquo;ll receive text messages of the posted notifications on the given mobile number.</p>
+                </div>
+
 
 
     </body>

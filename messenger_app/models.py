@@ -35,19 +35,19 @@ class info(models.Model):
     ('ECE','ECE'),
     ('Mechanical','Mechanical'),
     ('Civil','Civil'),
-    ('All','All'),
+    ('All Streams','All'),
     )
 
     year_choices = (
-    (1,"1st year"),
-    (2,"2nd year"),
-    (3,"3rd year"),
-    (4,"4th year"),
-    (5,"All")
+    ("1st year","1st year"),
+    ("2nd year","2nd year"),
+    ("3rd year","3rd year"),
+    ("4th year","4th year"),
+    ("All years","All years"),
     )
 
-    stream = models.CharField(max_length=10,choices = stream_choices)
-    year = models.IntegerField(choices=year_choices)
+    stream = models.CharField(max_length=20,choices = stream_choices)
+    year = models.CharField(max_length = 10 ,choices=year_choices)
     information = models.CharField(max_length=10000)
     date = models.DateField(default=date.today())
 
