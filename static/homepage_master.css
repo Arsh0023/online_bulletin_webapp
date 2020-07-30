@@ -58,3 +58,7 @@ body{
     margin-left: 7%;
     padding: 15px;
 }
+
+.jumbotron{
+    background: #e9ecef;
+}

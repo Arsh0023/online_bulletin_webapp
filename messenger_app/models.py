@@ -1,5 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
 
+from datetime import date
 # Create your models here.
 
 class student(models.Model):
@@ -24,3 +26,30 @@ class student(models.Model):
 
     def __str__(self):
         return("{}, stream - {} ,year-{} ".format(self.name,self.stream,self.year))
+
+class info(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE) #the details of who posted it
+
+    stream_choices = (
+    ('CSE','CSE'),
+    ('ECE','ECE'),
+    ('Mechanical','Mechanical'),
+    ('Civil','Civil'),
+    ('All Streams','All'),
+    )
+
+    year_choices = (
+    ("1st year","1st year"),
+    ("2nd year","2nd year"),
+    ("3rd year","3rd year"),
+    ("4th year","4th year"),
+    ("All years","All years"),
+    )
+
+    stream = models.CharField(max_length=20,choices = stream_choices)
+    year = models.CharField(max_length = 10 ,choices=year_choices)
+    information = models.CharField(max_length=10000)
+    date = models.DateField(default=date.today())
+
+    def __str__(self):
+        return("Posted by:- {} on {}".format(self.user.first_name,self.date))

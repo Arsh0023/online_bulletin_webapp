@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends "messenger_app/base.html"%}
+{% block body_block%}
+<br><br><br><br><br>
+<div class="jumbotron">
+    <h2>Fill in the details!</h2>
+    <form class="" action="{%url "messenger_app:user_login"%}" method="post">
+        {% csrf_token %}
+        <label for="username">Username: </label>
+        <input type="text" name="username" placeholder="Username">
+        <br><br><br>
+        <label for="password">Password: </label>
+        <input type="password" name="password" value="">
+        <br><br>
+        <input class="btn btn-primary btn-lg" type="submit" name="" value="Login">
+    </form>
+</div>
+{% endblock %}
